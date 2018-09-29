@@ -31,12 +31,12 @@ class ShoppingListItems(db.Model):
     shopping_list_id = db.Column(db.Integer, db.ForeignKey('shopping_list.id'), primary_key=True)
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), primary_key=True)
     quantity = db.Column(db.Integer, default=0)
-    actual_item_price = db.Column(db.DECIMAL, default=0)
-    discount_percentage = db.Column(db.DECIMAL, default=0)
-    discount_per_item = db.Column(db.DECIMAL, default=0)
-    discounted_item_price = db.Column(db.DECIMAL, default=0)
-    actual_total_price = db.Column(db.DECIMAL, default=0)
-    discounted_total_price = db.Column(db.DECIMAL, default=0)
+    actual_item_price = db.Column(db.Float, default=0)
+    discount_percentage = db.Column(db.Float, default=0)
+    discount_per_item = db.Column(db.Float, default=0)
+    discounted_item_price = db.Column(db.Float, default=0)
+    actual_total_price = db.Column(db.Float, default=0)
+    discounted_total_price = db.Column(db.Float, default=0)
 
 
 class Item(db.Model):
