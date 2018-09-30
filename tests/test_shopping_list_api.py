@@ -1,7 +1,7 @@
 import unittest
 import json
 from app import create_app, db
-from app.models import Item, ShoppingList, ShoppingListItems, UnitMeasurement
+from app.models import Item, UnitMeasurement
 
 
 class ShoppingListAPITestCase(unittest.TestCase):
