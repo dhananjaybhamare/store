@@ -4,7 +4,7 @@ from app import db
 
 def add_shopping_list(title, store_name):
     """
-    This methos will add a new shopping list.
+    This method will add a new shopping list.
     If shopping list already exist then will return null
     :param title:
     :param store_name:
