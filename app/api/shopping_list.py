@@ -22,8 +22,8 @@ class ShoppingList(Resource):
 
     def put(self):
         """
-        Restful endpoind to update title/store_name of the shopping list
-        :return:
+        Restful endpoint to update title/store_name of the shopping list
+        :return: shopping_list_id
         """
         parser = get_shopping_list_put_req_parser()
         args = parser.parse_args()
@@ -31,7 +31,7 @@ class ShoppingList(Resource):
         title = args['title']
         store_name = args['store']
         if not title and not store_name:
-            abort(404, message='Either title or store name is required')
+            abort(400, message='Either title or store name is required')
         shopping_list_id = shopping_service.update_shopping_list(shopping_list_id, title, store_name)
         if not shopping_list_id:
             abort(409, message='Shopping List does not exist')
