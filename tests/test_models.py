@@ -1,6 +1,4 @@
 import unittest
-import time
-from datetime import datetime
 from app import create_app, db
 from app.models import Item, ShoppingList, ShoppingListItems, UnitMeasurement
 
@@ -30,24 +28,40 @@ class ModelTestCase(unittest.TestCase):
         self.app_context.pop()
 
     def test_unit_measurement(self):
+        """
+        Unittest UnitMeasurement model
+        :return:
+        """
         unit = UnitMeasurement(title='test_title')
         db.session.add(unit)
         db.session.commit()
         self.assertTrue(UnitMeasurement.query.filter_by(title='test_title').first() is not None)
 
     def test_item(self):
+        """
+        Unittest Item model
+        :return:
+        """
         item = Item(title='test_title', price=100, discount_percentage=10, unit_measurement_id=1)
         db.session.add(item)
         db.session.commit()
         self.assertTrue(Item.query.filter_by(title='test_title').first() is not None)
 
     def test__shopping_list(self):
+        """
+        Unittest ShoppingList model
+        :return:
+        """
         shopping_list = ShoppingList(title='test_title', store_name='test_store')
         db.session.add(shopping_list)
         db.session.commit()
         self.assertTrue(ShoppingList.query.filter_by(title='test_title').first() is not None)
 
     def test__shopping_list_item(self):
+        """
+        Unittest ShoppingListItems model
+        :return:
+        """
         shopping_list = ShoppingList(title='test_title', store_name='test_store')
         db.session.add(shopping_list)
         db.session.commit()
